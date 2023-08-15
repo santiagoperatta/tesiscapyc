@@ -1,0 +1,9 @@
+.row{
+	display: flex;
+}
+.left{
+	min-width: 70%;
+}
+.rigth{
+	margin-top: -240px;
+}
