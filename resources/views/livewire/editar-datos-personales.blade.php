@@ -1,5 +1,23 @@
-<form class="md:w-full space-y-5" wire:submit.prevent='crearDatos'>
-    <div class="grid grid-cols-2 gap-4">
+<form class="md:w-full space-y-5" wire:submit.prevent='editarDatos'>
+	<div class="mb-5 w-60 mx-auto">
+		<img src="{{ asset('storage/fotosperfil/' . $imagen) }}" class="rounded-full mx-auto">
+	</div>
+
+	<div>
+		<x-input-label for="imagen" :value="__('Imagen')" />
+		<x-text-input id="imagen" class="block mt-1 w-full" type="file" wire:model="imagen_nueva" accept="image/*"/>
+		
+		<x-input-error :messages="$errors->get('imagen')" class="mt-2" />
+	</div>
+	<div>
+		@if ($imagen_nueva)
+			Imagen nueva:
+			<img src="{{$imagen_nueva->temporaryUrl()}}" alt="">
+			
+		@endif
+	</div>
+
+	<div class="grid grid-cols-2 gap-4">
         <div>
             <div class="mt-1">
                 <x-input-label for="nombre" :value="__('Nombre')" />
@@ -62,18 +80,6 @@
 			<x-text-input id="direccion" class="block mt-1 w-full px-4 py-2" type="text" wire:model.lazy="direccion" placeholder="Tu direccion" :value="old('direccion')" />
 			<x-input-error :messages="$errors->get('direccion')" class="mt-2" />
 		</div>
-	</div>
-
-    <div class="mt-1">
-        <x-input-label for="imagen" :value="__('Imagen')" />
-        <x-text-input id="imagen" class="block mt-1 w-full px-4 py-2" type="file" wire:model.lazy="imagen" accept="image/*" />
-        
-        <div class="my-5 w-80">
-            @if($imagen)
-                <img src="{{$imagen->temporaryUrl()}}">
-            @endif
-		</div>
-		<x-input-error :messages="$errors->get('imagen')" class="mt-2" />
 	</div>
 
 	<x-primary-button>

@@ -35,13 +35,6 @@ class CrearVacante extends Component
 		'ultimo_dia' => 'required',
 		'descripcion' => 'required',
 		'imagen' => 'required|image|max:1024',
-		'requisitos'  => 'required',
-		'sueldo' => 'required',
-		'sexo' => 'required',
-		'estudios_valorados'  => 'required',
-		'experiencia_requerida'  => 'required',
-		'edad_requerida'  => 'required',
-		'carnet_conducir' => 'required'
 	];
 
 	public function crearVacante(){
@@ -59,13 +52,6 @@ class CrearVacante extends Component
 			'empresa'=> $datos['empresa'],
 			'ultimo_dia'=> $datos['ultimo_dia'],
 			'descripcion'=> $datos['descripcion'],
-			'requisitos'=> $datos['requisitos'],
-			'sueldo'=> $datos['sueldo'],
-			'sexo'=> $datos['sexo'],
-			'estudios_valorados'=> $datos['estudios_valorados'],
-			'experiencia_requerida'=> $datos['experiencia_requerida'],
-			'edad_requerida'=> $datos['edad_requerida'],
-			'carnet_conducir'=> $datos['carnet_conducir'],
 			'imagen'=> $datos['imagen'],
 			'user_id' => auth()->user()->id,
 		]);

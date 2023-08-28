@@ -3,6 +3,8 @@
 namespace App\Http;
 
 use App\Http\Middleware\RolUsuario;
+use App\Http\Middleware\RolReclutador;
+use App\Http\Middleware\RedirectToEditIfDataExists;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -64,6 +66,8 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-		'rol.reclutador' => RolUsuario::class
+		'rol.reclutador' => RolUsuario::class,
+		'rol.usuario' => RolReclutador::class,
+		'redirect.to.edit' => RedirectToEditIfDataExists::class,
 	];
 }

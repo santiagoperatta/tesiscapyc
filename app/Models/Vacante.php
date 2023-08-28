@@ -23,12 +23,6 @@ class Vacante extends Model
 		'descripcion',
 		'imagen',
 		'user_id',
-		'requisitos', 
-		'sueldo',
-		'sexo',
-		'estudios_valorados',
-		'experiencia_requerida',
-		'edad_requerida',
 		'carnet_conducir'
 	];
 

@@ -11,18 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('datos_personales', function (Blueprint $table) {
+        Schema::create('experiencias', function (Blueprint $table) {
             $table->id();
-			$table->string('nombre');
-			$table->string('apellido');
-			$table->string('telefono');
-			$table->string('dni');
-			$table->date('fecha_nacimiento');
-			$table->string('sexo');
-			$table->string('provincia');
-			$table->string('localidad');
-			$table->string('direccion');
-			$table->string('imagen');
+			$table->string('empresa');
+			$table->foreignId('categoria_id')->constrained()->onDelete('cascade');
+			$table->string('puesto');
+			$table->string('descripcion');
+			$table->date('fecha_inicio_experiencia');
+			$table->date('fecha_fin_experiencia');
 			$table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('datos_personales');
+        Schema::dropIfExists('experiencias');
     }
 };
