@@ -13,11 +13,7 @@
                 @auth
 					@cannot('create', App\Models\Vacante::class)
 						<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-							<x-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
-								{{ __('Vacantes') }}
-							</x-nav-link>
-
-							<x-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
+							<x-nav-link :href="route('mis_postulaciones.index')" :active="request()->routeIs('vacantes.index')">
 								{{ __('Mis Postulaciones') }}
 							</x-nav-link>
 
@@ -136,9 +132,6 @@
 			@endcan
 			@cannot('create', App\Models\Vacante::class)
 			<div class="pt-2 pb-3 space-y-1">
-				<x-responsive-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
-					{{ __('Vacantes') }}
-				</x-responsive-nav-link>
 				<x-responsive-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
 					{{ __('Mis Postulaciones') }}
 				</x-responsive-nav-link>

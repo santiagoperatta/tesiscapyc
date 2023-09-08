@@ -14,7 +14,7 @@
     @else
         <form wire:submit.prevent='postularme' class="p-2 w-96 mt-5">
             <div class="mb-4">
-                <x-input-label for="cv" :value="__('Curriculum')" />
+                <x-input-label for="cv" :value="__('Agrega un CV .PDF (Opcional)')"/>
                 <x-text-input id="cv" class="block mt-1 w-full" type="file" wire:model="cv" accept=".pdf"/>
             </div>
 

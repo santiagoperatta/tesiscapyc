@@ -69,5 +69,6 @@ class Kernel extends HttpKernel
 		'rol.reclutador' => RolUsuario::class,
 		'rol.usuario' => RolReclutador::class,
 		'redirect.to.edit' => RedirectToEditIfDataExists::class,
+		'no.crear.datos.personales' => \App\Http\Middleware\NoCrearDatosPersonales::class,
 	];
 }

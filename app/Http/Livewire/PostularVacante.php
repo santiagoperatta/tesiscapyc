@@ -16,7 +16,7 @@ class PostularVacante extends Component
     public $yaPostulado = false; // Propiedad para rastrear si el usuario ya se postuló
 
     protected $rules = [
-        'cv' => 'required|mimes:pdf'
+        'cv' => 'mimes:pdf'
     ];
 
     public function mount(Vacante $vacante)
@@ -32,31 +32,40 @@ class PostularVacante extends Component
     }
 
     public function postularme()
-    {
-        if ($this->yaPostulado) {
-            session()->flash('mensaje', 'Ya estás postulado a esta vacante. ¡Buena suerte!');
-            return redirect()->back();
-        }
-        
-        $datos = $this->validate();
+	{
+		if ($this->yaPostulado) {
+			session()->flash('mensaje', 'Ya estás postulado a esta vacante. ¡Buena suerte!');
+			return redirect()->back();
+		}
 
-        //almacenar cv en el disco duro
-        $cv = $this->cv->store('public/cv');
-        $datos['cv'] = str_replace('public/cv/', '', $cv);
+		// Validar si el usuario tiene sus datos personales cargados
+		$usuario = auth()->user();
+		if (!$usuario->datosPersonales) {
+			session()->flash('mensaje', 'Debes completar tus datos personales antes de postularte.');
+			return redirect()->route('datos_personales.create');
+		}
 
-        //crear candidato a vacante
-        $this->vacante->candidatos()->create([
-            'user_id' => auth()->user()->id,
-            'cv' => $datos['cv']
-        ]);
+		$datos = [];
 
-        //crear notificacion y enviar mail
-        $this->vacante->reclutador->notify(new NuevoCandidato($this->vacante->id, $this->vacante->titulo, auth()->user()->id));
+		if ($this->cv) {
+			// Almacenar CV en el disco duro
+			$cv = $this->cv->store('public/cv');
+			$datos['cv'] = str_replace('public/cv/', '', $cv);
+		}
 
-        //mostrar un mensaje de OK
-        session()->flash('mensaje', 'Tu CV se cargó con éxito.');
-        return redirect()->back();
-    }
+		// Crear candidato a vacante
+		$this->vacante->candidatos()->create([
+			'user_id' => auth()->user()->id,
+			'cv' => $datos['cv'] ?? null,
+		]);
+
+		// Crear notificación y enviar correo electrónico
+		$this->vacante->reclutador->notify(new NuevoCandidato($this->vacante->id, $this->vacante->titulo, auth()->user()->id));
+
+		// Mostrar un mensaje de OK
+		session()->flash('mensaje', 'Tu postulación se realizó con éxito.');
+		return redirect()->back();
+	}
 
 	public function cancelarPostulacion()
 	{
