@@ -4,23 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\CartaPresentacion;
+use Illuminate\Support\Facades\Auth;
 
 class CartaPresentacionController extends Controller
 {
-    public function index()
-    {
-        $carta_presentacion = CartaPresentacion::all();
+	public function index()
+	{
+		$user = Auth::user(); // Obtener el usuario actualmente autenticado
+		$cartapresentacion = $user->cartaPresentacion; // Obtener los datos personales del usuario
+	
         return view('cv.carta_presentacion.index', [
-            'carta_presentacion' => $carta_presentacion
+            'cartapresentacion' => $cartapresentacion
         ]);
+	}
+
+	public function edit(CartaPresentacion $cartapresentacion)
+	{
+    // Verificar si el usuario autenticado es el propietario de los datos personales
+    if (Auth::id() !== $cartapresentacion->user_id) {
+        abort(403, 'No tienes permiso para editar estos datos personales.');
     }
 
-	public function edit(CartaPresentacion $carta_presentacion)
-    {
-        return view('cv.carta_presentacion.edit', [
-			'carta_presentacion'=>$carta_presentacion
-		]);
-    }
+    return view('cv.carta_presentacion.edit', [
+        'cartapresentacion' => $cartapresentacion
+    ]);
+	}
 	
 	public function create()
     {

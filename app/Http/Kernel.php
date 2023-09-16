@@ -5,6 +5,7 @@ namespace App\Http;
 use App\Http\Middleware\RolUsuario;
 use App\Http\Middleware\RolReclutador;
 use App\Http\Middleware\RedirectToEditIfDataExists;
+use App\Http\Middleware\RedirectToEditIfCartaExists;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -70,5 +71,8 @@ class Kernel extends HttpKernel
 		'rol.usuario' => RolReclutador::class,
 		'redirect.to.edit' => RedirectToEditIfDataExists::class,
 		'no.crear.datos.personales' => \App\Http\Middleware\NoCrearDatosPersonales::class,
+
+		'redirect.to.edit.card' => RedirectToEditIfCartaExists::class,
+		'no.crear.carta.presentacion' => \App\Http\Middleware\NoCrearCartaPresentacion::class,
 	];
 }

@@ -50,7 +50,7 @@
             <div class="bg-white p-8 rounded-lg shadow-md w-full mt-8">
                 <div class="flex items-center justify-start">
                     <i class="text-blue-700 fa-regular fa-clipboard text-3xl mr-4"></i>
-                    <a href="{{ route('carta_presentacion.index') }}" class="block">
+					<a href="{{ $cartapresentacion ? route('carta_presentacion.edit', $cartapresentacion->id) : route('carta_presentacion.create') }}" class="block">
                         <p class="text-lg uppercase font-bold">CARTA DE PRESENTACIÓN</p>
                         <p class="text-left text-gray-700">Cuéntanos sobre ti, así nos conocemos mejor.</p>
                     </a>

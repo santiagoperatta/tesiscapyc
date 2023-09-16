@@ -3,8 +3,8 @@
         <div class="max-w mx-auto sm:px-6 lg:px-8">
             <div class="px-20 gap-8">
                 <div class=" text-gray-900">
-                    <h1 class="text-3xl font-bold text-center">Estudios</h1>
-                        <livewire:show-estudios />
+                    <h1 class="text-3xl font-bold text-center">Carta de Presentacion</h1>
+                        <livewire:crear-carta />
                 </div>
             </div>
         </div>

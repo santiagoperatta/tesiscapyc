@@ -5,7 +5,7 @@
                 <div class="p-6 text-gray-900">
 					<h1 class="text-3xl font-bold text-center">Carta de Presentacion</h1>
                     <div class="md:flex md:justify-center p-5">
-						<livewire:crear-estudios/>
+						<livewire:crear-carta/>
 					</div>
                 </div>
             </div>

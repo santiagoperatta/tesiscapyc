@@ -56,9 +56,9 @@ Route::get('/situacionlaboral/create', [SituacionLaboralController::class, 'crea
 Route::get('/situacionlaboral/{situacionlaboral}/edit', [SituacionLaboralController::class, 'edit'])->middleware(['auth', 'verified', 'rol.usuario' ])->name('situacion_laboral.edit');
 Route::get('/situacionlaboral/index', [SituacionLaboralController::class, 'index'])->middleware(['auth', 'verified', 'rol.usuario' ])->name('situacion_laboral.index');
 
-Route::get('/cartapresentacion/create', [CartaPresentacionController::class, 'create'])->middleware(['auth', 'verified', 'rol.usuario' ])->name('carta_presentacion.create');
+Route::get('/cartapresentacion/index', [CartaPresentacionController::class, 'index'])->middleware(['auth', 'verified', 'rol.usuario', 'redirect.to.edit.card' ])->name('carta_presentacion.index');
+Route::get('/cartapresentacion/create', [CartaPresentacionController::class, 'create'])->middleware(['auth', 'verified', 'rol.usuario', 'no.crear.carta.presentacion'  ])->name('carta_presentacion.create');
 Route::get('/cartapresentacion/{cartapresentacion}/edit', [CartaPresentacionController::class, 'edit'])->middleware(['auth', 'verified', 'rol.usuario' ])->name('carta_presentacion.edit');
-Route::get('/cartapresentacion/index', [CartaPresentacionController::class, 'index'])->middleware(['auth', 'verified', 'rol.usuario' ])->name('carta_presentacion.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

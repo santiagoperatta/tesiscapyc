@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class CartaPresentacion extends Model
 {
+	protected $table = 'carta_presentacion';
+	
     use HasFactory;
 
 	protected $fillable = [
