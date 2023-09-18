@@ -1,6 +1,6 @@
 <form class="md:w-full space-y-5" wire:submit.prevent='editarDatos'>
 	<div class="mb-5 w-60 mx-auto">
-		<img src="{{ asset('storage/fotosperfil/' . $imagen) }}" class="rounded-full mx-auto">
+		<img src="{{ asset('images/fotosperfil/' . $imagen) }}" class="rounded-full mx-auto">
 	</div>
 
 	<div>

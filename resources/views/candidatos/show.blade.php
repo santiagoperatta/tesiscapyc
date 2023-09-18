@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="ml-5">
-                        <img src="{{ asset('storage/fotosperfil/' . $candidato->user->datosPersonales->imagen) }}" class="w-40">
+                        <img src="{{ asset('images/fotosperfil/' . $candidato->user->datosPersonales->imagen) }}" class="w-40">
                     </div>
                 </div>
             </div>

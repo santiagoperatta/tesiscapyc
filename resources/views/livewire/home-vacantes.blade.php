@@ -5,7 +5,7 @@
 				@foreach ($vacantes as $vacante)
 					<div class="shadow-lg">
 						<a href={{route('vacantes.show', $vacante->id)}}>
-							<img src="{{ asset('storage/vacantes/' . $vacante->imagen) }}" alt="Imagen del post {{ $vacante->titulo }}">
+							<img src="{{ asset('images/vacantes/' . $vacante->imagen) }}" alt="Imagen del post {{ $vacante->titulo }}">
 						</a>
 						<div class="p-5 bg-white border-b border-gray-200 md:flex md:justify-between">
 							<div>
