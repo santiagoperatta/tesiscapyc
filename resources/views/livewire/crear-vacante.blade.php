@@ -6,7 +6,7 @@
 	</div>
 
 	<div>
-		<x-input-label for="salario" :value="__('Salario Mensual')" />
+		<x-input-label for="salario" :value="__('Salario')" />
 		<select id="salario" wire:model="salario" class="mb-2 w-full"
 		>
 		<option value="">-- Seleccione --</option>
@@ -29,7 +29,7 @@
 
 	<div>
 		<x-input-label for="empresa" :value="__('Empresa')" />
-		<x-text-input id="empresa" class="block mt-1 w-full" type="text" wire:model="empresa" placeholder="Empresa: ej. Netflix, Uber, Shopify" :value="old('empresa')"/>
+		<x-text-input id="empresa" class="block mt-1 w-full" type="text" wire:model="empresa" placeholder="Empresa: ej. Capyc, Supersol, SSD" :value="old('empresa')"/>
 		<x-input-error :messages="$errors->get('empresa')" class="mt-2" />
 	</div>
 

@@ -44,6 +44,12 @@ return [
             'throw' => false,
         ],
 
+		'custom' => [
+			'driver' => 'local',
+			'root' => public_path('images/vacantes'), // Ubicación personalizada
+			'url' => env('APP_URL').'/images/vacantes', // URL para acceder a las imágenes
+		],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
