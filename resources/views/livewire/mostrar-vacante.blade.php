@@ -11,7 +11,7 @@
 		{!! nl2br(e($vacante->descripcion)) !!}
 	</p>
 	
-	<img class="mt-4 w-1/2" src="{{ asset('images/vacantes/custom/' . $vacante->imagen) }}" alt="Imagen del post {{ $vacante->titulo }}">
+	<img class="mt-4 w-1/2" src="{{ asset('images/vacantes/' . $vacante->imagen) }}" alt="Imagen del post {{ $vacante->titulo }}">
 
 	@guest
 		<div class="mt-5 border-dashed p-5 text-center">
