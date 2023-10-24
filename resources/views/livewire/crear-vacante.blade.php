@@ -1,5 +1,4 @@
-<form method="POST" class="1/2 space-y-5" wire:submit.prevent='crearVacante'>
-	@csrf
+<form class="md:w-1/2 space-y-5" wire:submit.prevent='crearVacante'>
 	<div>
 		<x-input-label for="titulo" :value="__('Titulo Vacante')" />
 		<x-text-input id="titulo" class="block mt-1 w-full" type="text" wire:model="titulo" placeholder="Titulo vacante" :value="old('titulo')"/>
