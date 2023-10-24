@@ -18,6 +18,13 @@ return [
         'passwords' => 'users',
     ],
 
+
+	'verify' => [
+		'driver' => 'mail',
+		'provider' => 'users',
+		'table' => 'email_verifications',
+	],
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
