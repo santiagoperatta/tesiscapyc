@@ -60,7 +60,7 @@ class PostularVacante extends Component
 		]);
 
 		// Crear notificación y enviar correo electrónico
-		$this->vacante->reclutador->notify(new NuevoCandidato($this->vacante->id, $this->vacante->titulo, auth()->user()->id));
+		//$this->vacante->reclutador->notify(new NuevoCandidato($this->vacante->id, $this->vacante->titulo, auth()->user()->id));
 
 		// Mostrar un mensaje de OK
 		session()->flash('mensaje', 'Tu postulación se realizó con éxito.');
