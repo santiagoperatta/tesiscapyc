@@ -49,9 +49,10 @@ class EditarVacante extends Component
 
 		//Si hay una nueva img
 		if($this->imagen_nueva){
-			$imagen=$this->imagen_nueva->store('public/vacantes');
+			$imagen=$this->imagen_nueva->store('images/vacantes', 'custom');
 			$datos['imagen'] = str_replace('public/vacantes/', '', $imagen);
 		}
+
 
 		//Encontrar vacante a editar
 		$vacante = Vacante::find($this->vacante_id);
